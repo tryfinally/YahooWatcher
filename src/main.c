@@ -5,10 +5,14 @@
 #include "pebble_os.h"
 #include "pebble_app.h"
 #include "pebble_fonts.h"
+	
+#include "http.h"
 
 
 // 0DA9BD3C-03D8-42A6-8610-933666F37A42
-#define MY_UUID { 0x0D, 0xA9, 0xBD, 0x3C, 0x03, 0xD8, 0x42, 0xA6, 0x86, 0x10, 0x93, 0x36, 0x66, 0xF3, 0x7A, 0x42 }
+//#define MY_UUID { 0x0D, 0xA9, 0xBD, 0x3C, 0x03, 0xD8, 0x42, 0xA6, 0x86, 0x10, 0x93, 0x36, 0x66, 0xF3, 0x7A, 0x42 }
+// uuid for httpebble protocol
+#define MY_UUID { 0x91, 0x41, 0xB6, 0x28, 0xBC, 0x89, 0x49, 0x8E, 0xB1, 0x47, 0x04, 0x9F, 0x49, 0xC0, 0x99, 0xAD }
 PBL_APP_INFO_SIMPLE(MY_UUID, "Yahoo Watcher", "TryFinally", 1 /* App version */);
 
 
@@ -72,7 +76,7 @@ void handle_init(AppContextRef ctx) {
   window_stack_push(&window, true /* Animated */);
 
   text_layer_init(&textLayer, window.layer.frame);
-  text_layer_set_text(&textLayer, "YWatch!");
+  text_layer_set_text(&textLayer, "Y!Weather");
   text_layer_set_font(&textLayer, fonts_get_system_font(FONT_KEY_GOTHAM_30_BLACK));
   layer_add_child(&window.layer, &textLayer.layer);
 
